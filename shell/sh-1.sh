@@ -5,7 +5,7 @@ validint()
 {
     number="$1"; min="$2";max="$3"
 
-    if[ -z $number ] ; then
+    if [ -z $number ] ; then
         echo "you did not enter anything .pleast enter a number.">&2
         return 1
     fi

@@ -1,7 +1,7 @@
-#! /bin/bash
+#!/bin/bash
 #sh-2-- 测试数字是否为有效的浮点数字；
 
-. sh-1
+. ./sh-1.sh
 
 validfloat()
 {
@@ -21,32 +21,32 @@ validfloat()
 
         #先测试小数点左侧的整数部分；
         if [ ! -z $decimalPart ] ; then
-            if ! sh-1 "$decimalPart" "" "" ; then
+            if ! validint  "$decimalPart" "" "" ; then
                 return 1
             fi
         fi
 
         #测试小数部分
 
-        if [ "${fractionalPart%${factionalPart#?}}" ==  "-" ] ; then
-            echo "invlaid floating-point number:">&2
+        if [ "${fractionalPart%${factionalPart#?}}" =  "-" ] ; then
+            echo "invlaid floating-point number:" >&2
             return 1
         fi
         if [ "$fractionalPart" != "" ] ; then
-            if ! sh-1 "$fractionalPart" "0" "" ; then
+            if ! validint  "$fractionalPart" "0" "" ; then
                 return 1
             fi
         fi
 
     else
-        if [ "$fvalue" == "-" ] ; then
-            echo "invalid input">&2
+        if [ "$fvalue" = "-" ] ; then
+            echo "invalid input" >&2
             return 1
         fi
 
         #检查最后剩余部分是否为整数
 
-        if ! sh-1 "$fvalue" "" "" ; then
+        if ! validint "$fvalue" "" "" ; then
             return 1
         fi
 
