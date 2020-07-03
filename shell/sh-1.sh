@@ -37,5 +37,9 @@ validint()
     fi
 
     return 0
-
 }
+
+if validint "$1" "$2" "$3" ; then
+    echo "input is valid "
+
+fi
