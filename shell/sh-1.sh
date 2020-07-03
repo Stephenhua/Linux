@@ -11,7 +11,7 @@ validint()
     fi
 
     #第一个字符是否为负号；
-    if [ "${number%${number#?}}"="-"] ; then
+    if [ "${number%${number#?}}" = "-" ] ; then
         testvalue="${number#?}"
     else
         testvalue="$number"
@@ -24,14 +24,14 @@ validint()
     fi
 
     if [ ! -z $min ] ; then
-        if [ "$number" -lt "$min"] ; then   
+        if [ "$number" -lt "$min" ] ; then   
             echo "value small"
             return 1
         fi
     fi
 
     if [ ! -z $max] ; then
-        if [ "$number" -gt "$max"] ; then
+        if [ "$number" -gt "$max" ] ; then
             echo "bigger value"
         fi
     fi
