@@ -20,4 +20,4 @@ int main (){
         cout << b <<endl;
     }
     return 0 ;
-}
+}r
