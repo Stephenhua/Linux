@@ -15,7 +15,7 @@ void sys_err( const char* str){
 
 int main(void ){
     pid_t pid;
-    char* buff[1024];
+    char* buf[1024];
 
     int fd[2];
     char* p  = "test  for pipe\n";
@@ -26,7 +26,7 @@ int main(void ){
         close(fd[1]);
         printf("child process wait to read::\n");
         int len = read(fd[0],buf,sizeof(buf));
-        write(STDOUT_FILRNO,buf,len);
+        write(STDOUT_FILENO,buf,len);
         close(fd[0]);
     }else{
         close(fd[0]);
@@ -36,3 +36,4 @@ int main(void ){
     }
     return 0;
 }
+
