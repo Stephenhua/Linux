@@ -10,9 +10,14 @@
 #include <pthread.h>
 using namespace std;
 
+<<<<<<< HEAD
 #define handle_error_en(en,msg)
     do { errno = en; perror(msg); exit(EXIT_FAILURE);} while(0);
 
+=======
+#define handle_error_en(en, msg) \  
+        do { errno = en; perror(msg); exit(EXIT_FAILURE); } while (0) 
+>>>>>>> a282dd06c683ae61685236c3eb6fde04879c6a58
 static void * thread_start( void *arg){
     int i,s;
     //定义线程属性结构体；
@@ -26,7 +31,11 @@ static void * thread_start( void *arg){
     printf(" Thread's detachstate attribures");
 
     //从属性结构中获取分离状态属性；
+<<<<<<< HEAD
     s =pthread_attr_getdetachstate( &gattr,&i);
+=======
+    s = pthread_attr_getdetachstate( &gattr,&i);
+>>>>>>> a282dd06c683ae61685236c3eb6fde04879c6a58
 
     if( s){
         handle_error_en(s,"pthread_attr_getdetachstate");
@@ -36,8 +45,12 @@ static void * thread_start( void *arg){
 		(i == PTHREAD_CREATE_DETACHED) ? "PTHREAD_CREATE_DETACHED" :  
 		(i == PTHREAD_CREATE_JOINABLE) ? "PTHREAD_CREATE_JOINABLE" :  
 		"???"); 
+<<<<<<< HEAD
     
     pthread_attr_destory(&gattr);
+=======
+    	 pthread_attr_destroy(&gattr); 
+>>>>>>> a282dd06c683ae61685236c3eb6fde04879c6a58
 }
 int main ( int argc, char* argv[]){
     pthread_t thr;
@@ -52,4 +65,8 @@ int main ( int argc, char* argv[]){
     pthread_join(thr,NULL);
 
     return 0 ;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a282dd06c683ae61685236c3eb6fde04879c6a58

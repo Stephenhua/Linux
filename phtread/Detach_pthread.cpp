@@ -1,16 +1,17 @@
 #include <pthread.h>
+#include <unistd.h>
 #include <iostream>
 using namespace std;
 
-void * thfunc( void *arg){
-    cout <<"sub thread is running .\n";
-    return nullptr;
+void *thefunc( void *arg){
+    cout <<("sub thread is running .\n");
+    return NULL;
 }
 int main(int argc, char* argv[])
 {
     pthread_t  thread_id;
     pthread_attr_t thread_attr;
-    struct ched_param  tread_param;
+    struct sched_param  tread_param;
     size_t stack_size;
     int res;
     //线程初始化；
@@ -20,7 +21,7 @@ int main(int argc, char* argv[])
         cout<<" pthread_attr_init failed ："<<res <<endl;
     }
     //设置线程的状态；
-    res = pthread_init_setdetachstate( &thread_attr, PTHREAD_CREATE_DETACHED);
+    res = pthread_attr_setdetachstate( &thread_attr, PTHREAD_CREATE_DETACHED);
 
     if(res){
         cout <<" PTHREAD+CREATe failed :" <<res <<endl;
